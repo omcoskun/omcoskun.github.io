@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ömer Mert Coşkun</title>
+<meta name="description" content="Ömer Mert Coşkun'un projeleri: harita, askerî sembol ve koordinat araçları.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --surface: #ffffff;
+    --text: #1c1c1a;
+    --muted: #6b6b66;
+    --border: #e4e4df;
+    --accent: #2f6f5e;
+    --accent-soft: #e6f0ec;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141513;
+      --surface: #1c1d1b;
+      --text: #ececea;
+      --muted: #9a9a94;
+      --border: #2c2d2a;
+      --accent: #7cc2ac;
+      --accent-soft: #1f2d28;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 72px 20px 48px;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+  }
+  header p {
+    margin: 6px 0 0;
+    color: var(--muted);
+  }
+
+  h2 {
+    margin: 48px 0 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+
+  .card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    transition: border-color .15s, transform .15s;
+  }
+  .card:hover { border-color: var(--accent); }
+  .card:focus-within { border-color: var(--accent); }
+
+  .card h3 { margin: 0; font-size: 1.05rem; font-weight: 600; }
+  .card h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  /* Kartın tamamı ana bağlantıya tıklanabilir olsun */
+  .card h3 a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+  .card h3 a:focus-visible { outline: none; }
+  .card:has(h3 a:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .path {
+    display: inline-block;
+    margin-left: 8px;
+    font: 0.8rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 3px 7px;
+    border-radius: 6px;
+    vertical-align: 2px;
+  }
+
+  .card p { margin: 6px 0 0; color: var(--muted); font-size: 0.95rem; }
+
+  .meta {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .meta a {
+    position: relative; /* kartın üstünde kalsın */
+    z-index: 1;
+    color: var(--muted);
+    text-decoration: underline;
+    text-decoration-color: var(--border);
+    text-underline-offset: 3px;
+  }
+  .meta a:hover { color: var(--accent); text-decoration-color: currentColor; }
+
+  footer {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  footer a { color: inherit; }
+
+  @media (max-width: 480px) {
+    main { padding: 48px 16px 40px; }
+    .path { display: block; width: fit-content; margin: 6px 0 0; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Ömer Mert Coşkun</h1>
+    <p>Harita, askerî sembol ve koordinat üzerine yaptığım projeler.</p>
+  </header>
+
+  <h2>Uygulamalar</h2>
+  <ul>
+    <li class="card">
+      <h3><a href="/map/">Map</a><span class="path">/map</span></h3>
+      <p>Ayrıntılı harita, askerî semboller, yer arama ve veri katmanları; ölçüm ve WGS 84, MGRS, UTM, GARS, GEOREF koordinat araçları.</p>
+      <div class="meta"><a href="https://github.com/omcoskun/map">Kaynak kodu</a></div>
+    </li>
+    <li class="card">
+      <h3><a href="/haritaANKARA/">Harita Ankara</a><span class="path">/haritaANKARA</span></h3>
+      <p>Ankara'nın eski harita ve planları, bugünkü haritanın üzerinde.</p>
+      <div class="meta"><a href="https://github.com/omcoskun/haritaANKARA">Kaynak kodu</a> · <a href="https://github.com/saricicekibrahim/haritaANKARA">saricicekibrahim/haritaANKARA</a> projesinden çatallandı</div>
+    </li>
+    <li class="card">
+      <h3><a href="/milsymbol/">Military Symbol Studio</a><span class="path">/milsymbol</span></h3>
+      <p>Askerî sembolleri gezin, standart seçin, değiştiricileri ayarlayın; SVG ya da PNG olarak dışa aktarın.</p>
+      <div class="meta"><a href="https://github.com/omcoskun/milsymbol">Kaynak kodu</a> · <a href="https://github.com/spatialillusions/milsymbol">milsymbol</a> üzerine kurulu</div>
+    </li>
+  </ul>
+
+  <h2>Kütüphaneler</h2>
+  <ul>
+    <li class="card">
+      <h3><a href="https://github.com/omcoskun/convert-tools">convert-tools</a></h3>
+      <p>JavaScript ve React için hassas birim ve koordinat dönüşüm araçları.</p>
+    </li>
+  </ul>
+
+  <footer>
+    <a href="https://github.com/omcoskun">github.com/omcoskun</a>
+  </footer>
+</main>
+</body>
+</html>
